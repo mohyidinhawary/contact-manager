@@ -1,9 +1,7 @@
-interface IButtonIconProps{
-    className:string
-}
-const ButtonIcon=({className}:IButtonIconProps)=>{
+
+const ButtonIcon:React.FunctionComponent=()=>{
 return(
-    <i className={`${className}`} />
+    <i  />
 )
 }
 export default ButtonIcon

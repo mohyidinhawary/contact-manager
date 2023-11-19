@@ -1,10 +1,14 @@
 
+
+
 interface IButtonProps{
     children?:string;
+    className?:string;
+    
 }
-const Button=({children}:IButtonProps)=>{
+const Button=({children,className}:IButtonProps)=>{
 return(
-    <button>{children}</button>
+    <button className={`${className}`}> {children}</button>
 )
 }
 export default Button
