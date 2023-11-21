@@ -1,14 +1,17 @@
 
-
-
-interface IButtonProps{
+interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     children?:string;
-    className?:string;
+    className:string;
+   
+};
+
+
+
+
+const Button=({children,className,...props}:IButtonProps)=>{
     
-}
-const Button=({children,className}:IButtonProps)=>{
 return(
-    <button className={`${className}`}> {children}</button>
+    <button className={`${className}`} {...props} > {children}</button>
 )
 }
 export default Button
