@@ -1,10 +1,10 @@
 
 
-import Button from "../../components/button/button"
+import Button from "../../components/button/button.component"
 
 const AddContact=()=>{
 return(
-<h1><Button className="" >Add Contact</Button></h1>
+<Button size="lg" variant="search" icons="pencil"  >Search</Button>
     )
 }
 export default AddContact
