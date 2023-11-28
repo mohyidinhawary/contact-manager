@@ -1,5 +1,7 @@
-import Card from "../../components/card/card.component"
+
+
 import Header from "../../components/header/header.component"
+import ListCard from "../../components/list-card/list-card.component"
 
 const ContactList:React.FunctionComponent=()=>{
     return(
@@ -7,7 +9,7 @@ const ContactList:React.FunctionComponent=()=>{
          <Header variant="contacts" >
     Phone Directory
    </Header>
-   <Card />
+<ListCard />
         </>
   
         )

@@ -1,7 +1,9 @@
-
-const FormInput=()=>{
+interface IInput{
+    label:string;
+}
+const FormInput=({label,...props}:IInput)=>{
 return(
-    <input  />
+    <input {...props} />
     
 )
 }
