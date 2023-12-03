@@ -1,10 +1,24 @@
-interface IInput{
-    label:string;
+
+import { FormInputLabel, Input } from "./form-input.style"
+interface IInput extends React.InputHTMLAttributes<HTMLInputElement>{
+    label?:string;
+    
 }
 const FormInput=({label,...props}:IInput)=>{
 return(
-    <input {...props} />
+   <>
+         <Input {...props} />
+         {label && (
+        <FormInputLabel >
+          {label}
+        </FormInputLabel>
+      )}
+    </>
+        
+   
     
+ 
+        
 )
 }
 export default FormInput

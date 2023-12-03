@@ -9,6 +9,7 @@ const ContactList:React.FunctionComponent=()=>{
          <Header variant="contacts" >
     Phone Directory
    </Header>
+   
 <ListCard />
         </>
   

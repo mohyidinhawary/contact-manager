@@ -1,10 +1,11 @@
 
 
-import Button from "../../components/button/button.component"
+import AddForm from "../../components/add-form/add-form.component"
+
 
 const AddContact=()=>{
 return(
-<Button size="lg" variant="search" icons="pencil"  >Search</Button>
+<AddForm />
     )
 }
 export default AddContact
