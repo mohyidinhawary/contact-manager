@@ -5,7 +5,7 @@ export const buttonVariants=cva("rounded-md",{
 variant:{
     new:"text-white bg-green-500",
     create:"text-white bg-green-500",
-    cancel:"text-white bg-black-500",
+    cancel:"text-white bg-black",
     search:"border-2 border-black text-black",
     show:"text-white bg-yellow-500",
     back:"text-black bg-yellow-500",

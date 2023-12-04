@@ -2,7 +2,7 @@ import Button from "../button/button.component"
 import FormInput from "../form-input/form-input.component"
 import Form from "../form/form.component"
 
-const AddForm=()=>{
+const UpdateForm=()=>{
 return(
     <>
     <Form>
@@ -42,11 +42,11 @@ return(
         required
         name='Title'
          />
-       <Button variant="create" size="lg" className=" mt-6 mr-72"  >Create</Button>
+       <Button variant="update" size="lg" className=" mt-6 mr-72"  >Update</Button>
        
     </Form>
     
     </>
 )
 }
-export default AddForm
+export default UpdateForm

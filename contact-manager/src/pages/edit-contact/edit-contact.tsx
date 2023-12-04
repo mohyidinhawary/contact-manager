@@ -1,6 +1,14 @@
-const EditContact:React.FunctionComponent=()=>{
+import Header from "../../components/header/header.component"
+import UpdateForm from "../../components/update-form/update-form.component"
+
+const EditContact=()=>{
     return(
-    <h1>Edit Contact</h1>
+    <>
+    <Header variant="edit">
+Edit Contact
+    </Header>
+    <UpdateForm />
+    </>
         )
     }
     export default EditContact

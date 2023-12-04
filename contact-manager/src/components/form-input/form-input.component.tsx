@@ -7,12 +7,13 @@ interface IInput extends React.InputHTMLAttributes<HTMLInputElement>{
 const FormInput=({label,...props}:IInput)=>{
 return(
    <>
-         <Input {...props} />
-         {label && (
+    {label && (
         <FormInputLabel >
           {label}
         </FormInputLabel>
       )}
+         <Input {...props} />
+        
     </>
         
    

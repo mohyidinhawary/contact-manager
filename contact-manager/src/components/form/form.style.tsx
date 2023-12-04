@@ -1,5 +1,5 @@
 import styled from "styled-components"
 
 export const  FormContainer=styled.form.attrs({
-className:""
+className:"grid grid-cols-1 justify-items-center "
 })``;

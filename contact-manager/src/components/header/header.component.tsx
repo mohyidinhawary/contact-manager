@@ -1,5 +1,5 @@
 import {VariantProps} from"class-variance-authority";
-import { cn } from "../../utilits/utilits";
+import { cn } from "../../utilits/cn";
 import { titleVariants } from "./header.style";
 import { ReactNode } from "react";
 interface IHeaderProps extends VariantProps<typeof titleVariants>{

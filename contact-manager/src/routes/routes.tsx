@@ -7,7 +7,7 @@ import ViewContact from "../pages/view-contact/view-contact";
 
 export const router=createBrowserRouter([
     {
-        path:"/",
+        path:"",
         element:<App />,
         children:[
 {
@@ -15,7 +15,7 @@ export const router=createBrowserRouter([
     element:<AddContact />,
 },
 {
-    path:"/contacts",
+    path:"/",
     element:<ContactList />,
 },
 {

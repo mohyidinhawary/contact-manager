@@ -16,7 +16,7 @@ return(
         <span className="text-md text-black-500 dark:text-black-500">BonnieGreen@gmail.com</span> 
    
         <div className="flex mt-4 md:mt-6">
-           <Button  variant="back" size="lg"  OnChangeHandler={()=>{navigate("/contacts")}}  >Back</Button>
+           <Button  variant="back" size="lg"  OnChangeHandler={()=>{navigate("/")}}  >Back</Button>
            
            
          </div>

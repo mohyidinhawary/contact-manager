@@ -1,7 +1,7 @@
 import Header from "../../components/header/header.component"
 import ViewCard from "../../components/view-card/view-card.component"
 
-const ViewContact:React.FunctionComponent=()=>{
+const ViewContact=()=>{
     return(
         <>
         <Header variant="view" >View Contact</Header>
