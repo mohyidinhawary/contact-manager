@@ -5,5 +5,5 @@ export const NavContainer=styled.div.attrs({
 })``;
 
 export const NavContent=styled.div.attrs({
-    className:"mb-12"
+    className:""
 })``;

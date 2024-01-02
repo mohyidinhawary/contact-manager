@@ -2,8 +2,12 @@ import Card from "../card/card.component"
 import Button from "../button/button.component"
 import { useNavigate } from "react-router-dom"
 import user from "../../assets/user.png"
+
+
 const ViewCard=()=>{
     const navigate=useNavigate();
+  
+
 return(
     <Card >
         <img className="w-32 h-32 mb-3 rounded-full shadow-lg" src={user} alt="user"/>

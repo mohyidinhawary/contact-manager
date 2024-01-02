@@ -23,7 +23,7 @@ export const router=createBrowserRouter([
     element:<EditContact />,
 },
 {
-    path:"/viewcontact",
+    path:"/viewcontact/:id",
     element:<ViewContact />,
 },
         ]
