@@ -3,13 +3,16 @@ import {ReactNode} from "react"
 import { FormContainer } from "./form.style"
 interface IForm{
     children:ReactNode
+    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 }
-const Form=({children}:IForm)=>{
+const Form=({children,onSubmit}:IForm)=>{
 return(
-   <FormContainer>
+  
+    <FormContainer onSubmit={onSubmit}>
   {children}
    </FormContainer>
-     
+  
+  
     
 )
 }

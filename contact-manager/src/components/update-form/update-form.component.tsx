@@ -1,48 +1,78 @@
+import { useContext,useState } from "react"
 import Button from "../button/button.component"
 import FormInput from "../form-input/form-input.component"
 import Form from "../form/form.component"
-
-const UpdateForm=()=>{
+import { ContactsContext } from "../../context/contact"
+import { Contact } from "../../context/contact"
+import { FormEvent } from "react"
+interface IUpdateForm{
+    contact:any,
+   
+  }
+const UpdateForm=({contact}:IUpdateForm)=>{
+    const{UpdateContact}=useContext(ContactsContext);
+    
+    const [formData, setFormData] = useState<Contact>({
+        ...contact
+      });
+    
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [e.target.name]: e.target.value,
+        }));
+      };
+    
+      const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        UpdateContact({ ...contact, ...formData });
+      };
+    
 return(
     <>
-    <Form>
-        <FormInput 
+    <Form onSubmit={handleSubmit}>
+    <FormInput 
         label="name" 
         type='text'
         required
         name='name'
+        value={formData.name}
+        onChange={handleChange}
          />
         <FormInput 
-        label="photo url" 
+        label="username" 
         type='text'
          required
-        name='photo url'
+        name='username'
+        value={formData.username}
+        onChange={handleChange}
          />
         <FormInput 
-        label="Mobile" 
-        type='number'
-        required
-        name='Mobile'
-         />
-        <FormInput 
-        label="Email" 
-        type='email'
-        required
-        name='Email'
-         />
-        <FormInput 
-        label="Company" 
+        label="phone" 
         type='text'
         required
-        name='Company'
+        name='phone'
+        value={formData.phone}
+    onChange={handleChange}
          />
         <FormInput 
-        label="Title" 
+        label="email" 
         type='text'
         required
-        name='Title'
+        name='email'
+        value={formData.email}
+        onChange={handleChange}
          />
-       <Button variant="update" size="lg" className=" mt-6 mr-72"  >Update</Button>
+        <FormInput 
+        label="website" 
+        type='text'
+        required
+        name='website'
+        value={formData.website}
+        onChange={handleChange}
+         />
+      
+       <Button variant="update" size="lg" className=" mt-6 mr-72" type="submit"  >Update</Button>
        
     </Form>
     

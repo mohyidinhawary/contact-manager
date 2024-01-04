@@ -2,15 +2,22 @@ import { createContext, useState, ReactNode, useEffect } from 'react';
 import { contactService } from '../services/contacts';
 import { AxiosResponse } from 'axios';
 
-interface Contact {
-  id: number;
+export interface Contact {
+  id?:  number;
   name: string;
   username: string;
   email: string;
+  phone:string;
+  website:string;
+  
 }
 
 interface ContactsContextProps {
   Contacts: Contact[];
+  getContactById: (id: number) => Contact | undefined;
+  deleteContact: (id: number) => void;
+  addNewContact: (contactData: Contact) => void;
+  UpdateContact: (ucontactData: Contact) => void;
 }
 
 interface ContactsProviderProps {
@@ -19,6 +26,10 @@ interface ContactsProviderProps {
 
 export const ContactsContext = createContext<ContactsContextProps>({
   Contacts: [],
+  getContactById: () => undefined,
+  deleteContact: () => {},
+  addNewContact: () => {},
+  UpdateContact:() =>{}
 });
 
 export const ContactsProvider = ({ children }: ContactsProviderProps) => {
@@ -35,11 +46,48 @@ export const ContactsProvider = ({ children }: ContactsProviderProps) => {
       }
     };
     
+    
 
     fetchContacts();
+   
   }, []);
-
-  const value: ContactsContextProps = { Contacts };
+  const getContactById = (id: number) => {
+    return Contacts.find((contact) => contact.id === id);
+  };
+  const deleteContact = async (id:number) => {
+    try {
+      await contactService.deleteContact(id)
+      setContacts((prevContacts) => prevContacts.filter((contact) => contact.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addNewContact=async(contactData:Contact)=>{
+   
+      try {
+        const response = await contactService.addContact(contactData);
+        const newContact: Contact = response.data; // Assuming the contact data is present in the `data` property of the response
+        setContacts((prevContacts) => [...prevContacts, newContact]);
+      } catch (error) {
+        console.log(error);
+      }
+    
+  };
+  const UpdateContact=async(ucontactData:Contact)=>{
+   
+    try {
+      const response = await contactService.updateContact(ucontactData);
+      const updatedContacts = Contacts.map((contact) =>
+        contact.id === response.data.id ? response.data : contact
+      );
+      setContacts(updatedContacts);
+    } catch (error) {
+      console.log(error);
+    }
+  
+};
+  
+  const value: ContactsContextProps = { Contacts, getContactById,deleteContact,addNewContact,UpdateContact };
   return (
     <ContactsContext.Provider value={value}>
       {children}

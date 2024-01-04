@@ -23,7 +23,7 @@ const ContactList=()=>{
     Phone Directory
    </Header>
  
-   <Form>
+   <Form >
    <Button variant="new" size="lg" icons="plus" OnChangeHandler={()=>{navigate("/addcontact")}} className="mx-96 my-4">New</Button>
     <FormInput label="search" type="search" />
     
