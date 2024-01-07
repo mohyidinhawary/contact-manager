@@ -1,24 +1,12 @@
-
-import { ReactNode } from "react";
 import { CardContainer, CardContent } from "./card.style";
-interface ICardProps{
-    children:ReactNode; 
-}
+import { ICardProps } from "../../types/card";
 const Card=({children}:ICardProps)=>{
-
 return(
 <CardContainer>
-
-       <CardContent>
-       {children}
-       </CardContent>
-     
-      
-   
+ <CardContent>
+ {children}
+</CardContent>
 </CardContainer>
-   
-   
-
 )
 }
 export default Card

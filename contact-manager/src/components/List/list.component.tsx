@@ -1,13 +1,4 @@
-
-interface IList {
-    items:any[];
-    resourceName:any
-    ItemComponent:any
-}
-
-
-
-
+import { IList } from "../../types/list"
 const List=({items,resourceName,ItemComponent}:IList)=>{
 return(
     <>

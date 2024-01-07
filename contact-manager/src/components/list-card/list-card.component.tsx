@@ -4,13 +4,7 @@ import Button from "../button/button.component"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react"
 import { ContactsContext } from "../../context/contact"
-
-
-
-interface IListCard{
-  contact:any
-}
-
+import { IListCard } from "../../types/list"
 const ListCard=({contact}:IListCard)=>{
 
   
@@ -27,7 +21,7 @@ return(
    
         <div className="flex mt-4 md:mt-6">
            <Button  variant="show" size="lg" icons="eye" OnChangeHandler={()=>{navigate(`/viewcontact/${id}`)}}  />
-           <Button   variant="edit" size="lg" icons="edit" className="mx-2" OnChangeHandler={()=>{navigate("/editcontact")}}  />
+           <Button   variant="edit" size="lg" icons="edit" className="mx-2" OnChangeHandler={()=>{navigate(`/editcontact/${id}`)}}  />
            <Button  variant="delete" size="lg" icons="trash" OnChangeHandler={()=>{deleteContact(id)}}  /> 
            
          </div>

@@ -1,19 +1,10 @@
-
-import {ReactNode} from "react"
 import { FormContainer } from "./form.style"
-interface IForm{
-    children:ReactNode
-    onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
-}
+import { IForm } from "../../types/form";
 const Form=({children,onSubmit}:IForm)=>{
 return(
-  
-    <FormContainer onSubmit={onSubmit}>
+  <FormContainer onSubmit={onSubmit}>
   {children}
-   </FormContainer>
-  
-  
-    
+   </FormContainer>   
 )
 }
 export default Form

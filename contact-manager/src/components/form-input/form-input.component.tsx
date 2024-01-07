@@ -1,9 +1,5 @@
-
 import { FormInputLabel, Input } from "./form-input.style"
-interface IInput extends React.InputHTMLAttributes<HTMLInputElement>{
-    label?:string;
-    
-}
+import { IInput } from "../../types/form-input"
 const FormInput=({label,...props}:IInput)=>{
 return(
    <>

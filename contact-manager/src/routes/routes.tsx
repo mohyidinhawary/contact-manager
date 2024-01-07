@@ -19,7 +19,7 @@ export const router=createBrowserRouter([
     element:<ContactList />,
 },
 {
-    path:"/editcontact",
+    path:"/editcontact/:id",
     element:<EditContact />,
 },
 {

@@ -1,10 +1,6 @@
-import {VariantProps} from"class-variance-authority";
+import { IHeaderProps } from "../../types/header";
 import { cn } from "../../utilits/cn";
 import { titleVariants } from "./header.style";
-import { ReactNode } from "react";
-interface IHeaderProps extends VariantProps<typeof titleVariants>{
-    children?:ReactNode; 
-}
 const Header=({children,variant}: IHeaderProps)=>{
 return(
     <h1 className={cn(titleVariants({variant}))}>{children}</h1>

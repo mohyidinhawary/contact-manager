@@ -5,9 +5,8 @@ import Form from "../form/form.component"
 import { ContactsContext } from "../../context/contact"
 import { useState } from "react"
 import { Contact } from "../../context/contact"
+
 import { useNavigate } from "react-router-dom"
-
-
 const AddForm=()=>{
     const navigate=useNavigate();
     const {addNewContact}=useContext(ContactsContext);
@@ -44,51 +43,28 @@ const AddForm=()=>{
         }
         console.log(formData)
       };
+      const inputFields = [
+        { label: "name", type: "text", required: true, name: "name", value:  `${formData.name} `},
+        { label: "username", type: "text", required: true, name: "username", value: `${formData.username} `},
+        { label: "phone", type: "text", required: true, name: "phone", value:`${formData.phone} ` },
+        { label: "email", type: "text", required: true, name: "email", value: `${formData.email} ` },
+        { label: "website", type: "text", required: true, name: "website", value:`${formData.website} ` },
+      ];
       
 return(
     <>
     <Form onSubmit={handleSubmit} >
-        <FormInput 
-        label="name" 
-        type='text'
-        required
-        name='name'
-        value={formData.name}
-        onChange={handleChange}
-         />
-        <FormInput 
-        label="username" 
-        type='text'
-         required
-        name='username'
-        value={formData.username}
-        onChange={handleChange}
-         />
-        <FormInput 
-        label="phone" 
-        type='text'
-        required
-        name='phone'
-        value={formData.phone}
-    onChange={handleChange}
-         />
-        <FormInput 
-        label="email" 
-        type='text'
-        required
-        name='email'
-        value={formData.email}
-        onChange={handleChange}
-         />
-        <FormInput 
-        label="website" 
-        type='text'
-        required
-        name='website'
-        value={formData.website}
-        onChange={handleChange}
-         />
-      
+    {inputFields.map((field) => (
+        <FormInput
+          key={field.name}
+          label={field.label}
+          type={field.type}
+          required={field.required}
+          name={field.name}
+          value={field.value}
+          onChange={handleChange}
+        />
+      ))}
        <Button variant="create" size="lg" className=" mt-6 mr-72" type="submit"   >Create</Button>
        
     </Form>

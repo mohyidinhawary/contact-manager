@@ -17,7 +17,7 @@ interface ContactsContextProps {
   getContactById: (id: number) => Contact | undefined;
   deleteContact: (id: number) => void;
   addNewContact: (contactData: Contact) => void;
-  UpdateContact: (ucontactData: Contact) => void;
+  UpdateContact: (ucontactData: Contact,id:number) => void;
 }
 
 interface ContactsProviderProps {
@@ -73,19 +73,25 @@ export const ContactsProvider = ({ children }: ContactsProviderProps) => {
       }
     
   };
-  const UpdateContact=async(ucontactData:Contact)=>{
-   
+  const UpdateContact = async (ucontactData: Contact,id:number) => {
     try {
-      const response = await contactService.updateContact(ucontactData);
-      const updatedContacts = Contacts.map((contact) =>
-        contact.id === response.data.id ? response.data : contact
-      );
-      setContacts(updatedContacts);
+      const response = await contactService.updateContact(ucontactData,id);
+      const updatedContact = response.data;
+  
+      setContacts((prevContacts) => {
+        const updatedContacts = prevContacts.map((contact) => {
+          if (contact.id === updatedContact.id) {
+            return updatedContact;
+          }
+          return contact;
+        });
+  
+        return updatedContacts;
+      });
     } catch (error) {
       console.log(error);
     }
-  
-};
+  };
   
   const value: ContactsContextProps = { Contacts, getContactById,deleteContact,addNewContact,UpdateContact };
   return (

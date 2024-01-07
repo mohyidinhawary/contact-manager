@@ -16,8 +16,8 @@ class ContactService extends BaseService {
 addContact(contactData:Contact){
  return this.post("/users",contactData)   
 }
-updateContact(ucontactData:Contact){
-    return this.put("/users",ucontactData);
+updateContact(ucontactData:Contact,id:number){
+    return this.put(`/users/${id}`,ucontactData);
 }
 }
 
